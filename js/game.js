@@ -15,6 +15,7 @@
   const timerDisplay = document.querySelector("#timer");
   const remainingDisplay = document.querySelector("#remaining");
   const loadingScene = document.querySelector("#loading-scene");
+  const startSonnyIcon = document.querySelector("#start-sonny-icon");
   const resultScreen = screens.result;
   const returnButton = document.querySelector("#play-again-button");
   const returnButtonLabel = returnButton.querySelector(".button-label");
@@ -24,6 +25,7 @@
   const configuredOpacity = Number(config.sonnyOpacity);
   const sonnyOpacity = Number.isFinite(configuredOpacity) ? Math.min(1, Math.max(0, configuredOpacity)) : 0.1;
   document.documentElement.style.setProperty("--sonny-opacity", sonnyOpacity);
+  startSonnyIcon.innerHTML = window.Sonny.createSVG({ id: "start-sonny" });
 
   function showScreen(name) {
     Object.entries(screens).forEach(([key, screen]) => screen.classList.toggle("is-hidden", key !== name));
