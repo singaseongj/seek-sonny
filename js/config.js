@@ -1,6 +1,6 @@
 // Replace this value with the deployment URL from your Google Apps Script Web App.
 window.SEEK_SONNY_CONFIG = {
-  appsScriptUrl: "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE",
+  appsScriptUrl: "https://script.google.com/macros/s/AKfycbxK6SpKJEtESSKJiD4G4x28fw58VOCS5szjvlYSnl_LfZlsj1sIBeM2aU0x1JmRfADR5A/exec",
   scenes: [
     "/assets/images/scene1.jpg",
     "/assets/images/scene2.jpg",
