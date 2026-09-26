@@ -51,7 +51,7 @@
     for (let i = 0; i < config.sonnyCount; i += 1) {
       let candidate, attempts = 0;
       do {
-        const size = 7 + Math.random() * 3.5; // Percentage of scene width.
+        const size = 5.5 + Math.random() * 2.5; // Percentage of scene width.
         candidate = { x: 2 + Math.random() * (96 - size), y: 3 + Math.random() * (91 - size), size, rotation: -20 + Math.random() * 40 };
         attempts += 1;
       } while (attempts < 100 && spots.some((spot) => Math.hypot(candidate.x - spot.x, candidate.y - spot.y) < minGap));
