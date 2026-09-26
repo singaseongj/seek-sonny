@@ -35,7 +35,7 @@
     animationFrame = requestAnimationFrame(tick);
   }
 
-  // Measures the visible image, not its container, so overlays stay correct with object-fit.
+  // Match the overlays to the stretched image bounds so every placement stays aligned.
   function syncLayerToImage() {
     const imageRect = sceneImage.getBoundingClientRect();
     const stageRect = stage.getBoundingClientRect();
