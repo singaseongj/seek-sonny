@@ -177,7 +177,7 @@ tr.is-player { color: var(--accent); font-weight: 700; }
   .screen { padding: 12px; }
   .start-screen, .game-screen { margin: 12px; width: calc(100% - 24px); }
   .start-grid { grid-template-columns: 1fr; padding-top: 22px; }
-  .start-leaderboard { width: min(100%, 360px); margin: 0 auto; order: -1; }
+  .start-leaderboard { width: min(100%, 360px); margin: 0 auto; }
   .instructions { display: none; }
   .edition, .hud-brand span:last-child { display: none; }
   .game-hud { gap: 8px; }
