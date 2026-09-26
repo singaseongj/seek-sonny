@@ -10,6 +10,10 @@
   const timerDisplay = document.querySelector("#timer");
   const remainingDisplay = document.querySelector("#remaining");
   const loadingScene = document.querySelector("#loading-scene");
+  const resultScreen = screens.result;
+  const returnButton = document.querySelector("#play-again-button");
+  const returnButtonLabel = returnButton.querySelector(".button-label");
+  const returnButtonIcon = returnButton.querySelector("[aria-hidden]");
   let startTime = 0, elapsedTime = 0, animationFrame = null, remaining = config.sonnyCount, placements = [];
 
   document.querySelector("#sonny-preview").innerHTML = window.Sonny.createSVG({ id: "preview-sonny" });
@@ -116,6 +120,10 @@
     document.querySelector("#score-form").reset();
     document.querySelector("#submit-status").textContent = "";
     document.querySelector("#submit-score").disabled = false;
+    resultScreen.classList.remove("leaderboard-only");
+    resultScreen.setAttribute("aria-labelledby", "result-title");
+    returnButtonLabel.textContent = "PLAY AGAIN";
+    returnButtonIcon.textContent = "↻";
     showScreen("result");
   }
 
@@ -148,7 +156,16 @@
   });
 
   document.querySelector("#start-button").addEventListener("click", startGame);
-  document.querySelector("#play-again-button").addEventListener("click", () => showScreen("start"));
+  document.querySelector("#highscore-button").addEventListener("click", async () => {
+    resultScreen.classList.add("leaderboard-only");
+    resultScreen.setAttribute("aria-labelledby", "leaderboard-title");
+    returnButtonLabel.textContent = "BACK";
+    returnButtonIcon.textContent = "←";
+    showScreen("result");
+    const entries = await window.Leaderboard.fetchLeaderboard();
+    renderLeaderboard(entries);
+  });
+  returnButton.addEventListener("click", () => showScreen("start"));
   document.querySelector("#quit-button").addEventListener("click", () => { cancelAnimationFrame(animationFrame); showScreen("start"); });
   window.addEventListener("resize", () => { if (!screens.game.classList.contains("is-hidden")) syncLayerToImage(); });
 })();
