@@ -10,5 +10,5 @@ window.SEEK_SONNY_CONFIG = {
   ],
   sonnyCount: 5,
   // Opacity of hidden Sonnys, from 0 (invisible) to 1 (fully visible).
-  sonnyOpacity: 0.1,
+  sonnyOpacity: 0.3,
 };
