@@ -47,6 +47,7 @@ body {
 button, input { font: inherit; }
 button { touch-action: manipulation; }
 .is-hidden { display: none !important; }
+#app { width: 100%; display: flex; justify-content: center; }
 .screen { width: 100%; max-width: 752px; padding: 16px; }
 
 /* Start screen */
@@ -175,8 +176,18 @@ tr.is-player { color: var(--accent); font-weight: 700; }
 @media (max-width: 600px) {
   body { align-items: flex-start; }
   .screen { padding: 12px; }
-  .start-screen, .game-screen { margin: 12px; width: calc(100% - 24px); }
-  .start-grid { grid-template-columns: 1fr; padding-top: 22px; }
+  .start-screen {
+    width: 100%;
+    min-height: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    min-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .game-screen { margin: 12px; width: calc(100% - 24px); }
+  .start-grid { grid-template-columns: 1fr; align-content: center; flex: 1; padding-top: 22px; }
   .start-leaderboard { width: min(100%, 360px); margin: 0 auto; }
   .instructions { display: none; }
   .edition, .hud-brand span:last-child { display: none; }
