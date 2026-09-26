@@ -9,4 +9,6 @@ window.SEEK_SONNY_CONFIG = {
     "assets/images/scene5.png",
   ],
   sonnyCount: 5,
+  // Opacity of hidden Sonnys, from 0 (invisible) to 1 (fully visible).
+  sonnyOpacity: 0.1,
 };
