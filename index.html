@@ -19,7 +19,10 @@
             <p class="eyebrow">A TINY CHARACTER HUNT</p>
             <h1 id="game-title">Seek<br /><em>Sonny.</em></h1>
             <p class="dek">Five little faces are tucked away in the scene. Find them all. Beat the clock.</p>
-            <button id="start-button" class="primary-button" type="button"><span>START SEARCHING</span><span aria-hidden="true">↗</span></button>
+            <div class="start-actions">
+              <button id="start-button" class="primary-button" type="button">START</button>
+              <button id="highscore-button" class="primary-button" type="button">HIGHSCORE</button>
+            </div>
             <p class="start-hint">No zooming needed · Works best in full screen</p>
           </div>
           <div class="character-card" aria-label="This is Sonny">
@@ -65,7 +68,7 @@
             <div class="board-heading"><h3 id="leaderboard-title">FIELD LEADERS</h3><span>TOP 10</span></div>
             <table><thead><tr><th>RANK</th><th>PLAYER</th><th>TIME</th></tr></thead><tbody id="leaderboard-body"></tbody></table>
           </section>
-          <button id="play-again-button" class="secondary-button" type="button">PLAY AGAIN <span>↻</span></button>
+          <button id="play-again-button" class="secondary-button" type="button"><span class="button-label">PLAY AGAIN</span> <span aria-hidden="true">↻</span></button>
         </div>
       </section>
     </main>
