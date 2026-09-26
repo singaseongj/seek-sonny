@@ -61,7 +61,7 @@
     placements = generatePlacements();
     placements.forEach((spot, index) => {
       const sonny = window.Sonny.createElement(index);
-      sonny.style.cssText = `left:${spot.x}%;top:${spot.y}%;width:${spot.size}%;aspect-ratio:6/7;transform:rotate(${spot.rotation}deg)`;
+      sonny.style.cssText = `left:${spot.x}%;top:${spot.y}%;width:${spot.size}%;aspect-ratio:1;transform:rotate(${spot.rotation}deg)`;
       sonny.addEventListener("pointerup", handleFound);
       sonnyLayer.append(sonny);
     });

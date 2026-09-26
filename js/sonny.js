@@ -5,15 +5,25 @@
   function createSonnySVG(options = {}) {
     const id = options.id || `sonny-${Math.random().toString(36).slice(2)}`;
     return `
-      <svg viewBox="0 0 120 140" role="img" aria-label="Sonny" xmlns="http://www.w3.org/2000/svg">
-        <defs><clipPath id="${id}-face"><circle cx="60" cy="66" r="43"/></clipPath></defs>
-        <g stroke="#18231d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M60 13V3M26 25l-8-8M94 25l8-8M14 59H3M106 59h11" fill="none"/>
-          <circle cx="60" cy="66" r="43" fill="#f5c94a"/>
-          <path d="M19 73c18 8 30-11 43-7 17 6 27-5 40-1v31H18z" fill="#ef5b2a" clip-path="url(#${id}-face)" stroke="none"/>
-          <circle cx="45" cy="59" r="3.5" fill="#18231d" stroke="none"/><circle cx="76" cy="59" r="3.5" fill="#18231d" stroke="none"/>
-          <path d="M47 77c7 8 19 8 26 0" fill="none"/>
-          <path d="M40 108l-5 22M80 108l5 22M35 130l-10 4M85 130l10 4" fill="none"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="${id}-title ${id}-description">
+        <title id="${id}-title">Sonny, a cheerful platform-game adventurer</title>
+        <desc id="${id}-description">A smiling character in a purple cap and teal overalls, waving.</desc>
+        <g stroke="#312e81" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path fill="#fbbf24" d="M17 22c0-9 6-15 15-15 8 0 14 5 15 13l-8 2H17Z"/>
+          <path fill="#7c3aed" d="M18 17c3-7 8-10 15-10 6 0 11 3 13 9-8-2-18-2-28 1Z"/>
+          <path fill="#a78bfa" d="M14 18c10-3 21-3 33 0l-1 5H15l-1-5Z"/>
+          <circle cx="32" cy="15" r="4" fill="#f8fafc" stroke="none"/>
+          <path fill="#fed7aa" d="M19 23h26v8c0 9-5 15-13 15S19 40 19 31v-8Z"/>
+          <path fill="#1e293b" d="M25 28h1v2h-1zm13 0h1v2h-1z" stroke="none"/>
+          <path fill="none" d="M28 36c3 2 6 2 9 0"/>
+          <path fill="#0d9488" d="M22 42h20l4 14H18l4-14Z"/>
+          <path fill="#fbbf24" d="M25 42h14v5H25z"/>
+          <circle cx="26" cy="49" r="2" fill="#f8fafc"/>
+          <circle cx="38" cy="49" r="2" fill="#f8fafc"/>
+          <path fill="#fed7aa" d="m43 42 7-9 5 4-8 11-4-6Z"/>
+          <path fill="#fed7aa" d="m50 33 1-6 3 4 3-3-1 7-3 3-3-5Z"/>
+          <path fill="#fed7aa" d="m21 43-7 5-3-5 8-6 2 6Z"/>
+          <path fill="#7c3aed" d="M18 55h11v5H15c0-3 1-4 3-5Zm17 0h11c2 1 3 2 3 5H35v-5Z"/>
         </g>
       </svg>`;
   }
