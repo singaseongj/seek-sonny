@@ -18,15 +18,13 @@
             <p class="dek">Five little faces are tucked away in the scene. Find them all. Beat the clock.</p>
             <div class="start-actions">
               <button id="start-button" class="primary-button" type="button">START</button>
-              <button id="highscore-button" class="primary-button" type="button">HIGHSCORE</button>
             </div>
             <p class="start-hint">No zooming needed · Works best in full screen</p>
           </div>
-          <div class="character-card" aria-label="This is Sonny">
-            <span class="card-label">YOUR TARGET</span>
-            <div id="sonny-preview" class="sonny-preview"></div>
-            <div class="card-caption"><strong>THIS IS SONNY</strong><span>Small · Sunny · Sneaky</span></div>
-          </div>
+          <section class="leaderboard start-leaderboard" aria-labelledby="start-leaderboard-title">
+            <div class="board-heading"><h2 id="start-leaderboard-title">FIELD LEADERS</h2><span>TOP 10</span></div>
+            <table><thead><tr><th>RANK</th><th>PLAYER</th><th>TIME</th></tr></thead><tbody id="start-leaderboard-body"><tr><td colspan="3" class="board-status">LOADING FIELD NOTES…</td></tr></tbody></table>
+          </section>
         </div>
         <div class="instructions" aria-label="How to play">
           <div><b>01</b><span>SCAN THE SCENE</span></div><div><b>02</b><span>FIND ALL FIVE</span></div><div><b>03</b><span>MAKE THE BOARD</span></div>
