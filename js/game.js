@@ -1,5 +1,10 @@
-(function () {
+(function initializeGame() {
   "use strict";
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeGame, { once: true });
+    return;
+  }
 
   const config = window.SEEK_SONNY_CONFIG;
   const screens = { start: document.querySelector("#start-screen"), game: document.querySelector("#game-screen"), result: document.querySelector("#result-screen") };
