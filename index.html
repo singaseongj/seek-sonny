@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f8f1e3" />
+    <title>Seek Sonny — A tiny character hunt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <section id="start-screen" class="screen start-screen" aria-labelledby="game-title">
+        <div class="topbar"><span class="brand-mark" aria-hidden="true"></span><span>SEEK SONNY</span><span class="edition">FIELD EDITION · 01</span></div>
+        <div class="start-grid">
+          <div class="intro-copy">
+            <p class="eyebrow">A TINY CHARACTER HUNT</p>
+            <h1 id="game-title">Seek<br /><em>Sonny.</em></h1>
+            <p class="dek">Five little faces are tucked away in the scene. Find them all. Beat the clock.</p>
+            <button id="start-button" class="primary-button" type="button"><span>START SEARCHING</span><span aria-hidden="true">↗</span></button>
+            <p class="start-hint">No zooming needed · Works best in full screen</p>
+          </div>
+          <div class="character-card" aria-label="This is Sonny">
+            <span class="card-label">YOUR TARGET</span>
+            <div id="sonny-preview" class="sonny-preview"></div>
+            <div class="card-caption"><strong>THIS IS SONNY</strong><span>Small · Sunny · Sneaky</span></div>
+          </div>
+        </div>
+        <div class="instructions" aria-label="How to play">
+          <div><b>01</b><span>SCAN THE SCENE</span></div><div><b>02</b><span>FIND ALL FIVE</span></div><div><b>03</b><span>MAKE THE BOARD</span></div>
+        </div>
+      </section>
+
+      <section id="game-screen" class="screen game-screen is-hidden" aria-label="Find Sonny game">
+        <header class="game-hud">
+          <div class="hud-brand"><span class="brand-mark"></span><span>SEEK SONNY</span></div>
+          <div class="hud-stat"><span>TIME</span><strong id="timer">00.00</strong></div>
+          <div class="hud-stat"><span>STILL HIDING</span><strong><span id="remaining">5</span> / 5</strong></div>
+        </header>
+        <div id="scene-stage" class="scene-stage">
+          <img id="scene-image" alt="A busy scene with five hidden Sonny characters" draggable="false" />
+          <div id="sonny-layer" class="sonny-layer" aria-live="polite"></div>
+          <div id="effect-layer" class="effect-layer" aria-hidden="true"></div>
+          <div id="loading-scene" class="loading-scene">PREPARING THE SCENE…</div>
+        </div>
+        <footer class="game-footer"><span>Tap each Sonny when you spot one.</span><button id="quit-button" class="text-button" type="button">QUIT SEARCH</button></footer>
+      </section>
+
+      <section id="result-screen" class="screen result-screen is-hidden" aria-labelledby="result-title">
+        <div class="result-panel">
+          <p class="eyebrow">SEARCH COMPLETE</p>
+          <h2 id="result-title">You found<br />every <em>Sonny.</em></h2>
+          <div class="final-time"><span>YOUR TIME</span><strong id="final-time">12.34s</strong></div>
+          <form id="score-form" class="score-form">
+            <label for="nickname">Add your name to the field notes</label>
+            <div class="input-row">
+              <input id="nickname" name="nickname" type="text" maxlength="20" placeholder="NICKNAME" autocomplete="nickname" required />
+              <button id="submit-score" class="primary-button" type="submit">SUBMIT SCORE <span>↗</span></button>
+            </div>
+            <p id="submit-status" class="submit-status" role="status"></p>
+          </form>
+          <section id="leaderboard-section" class="leaderboard is-hidden" aria-labelledby="leaderboard-title">
+            <div class="board-heading"><h3 id="leaderboard-title">FIELD LEADERS</h3><span>TOP 10</span></div>
+            <table><thead><tr><th>RANK</th><th>PLAYER</th><th>TIME</th></tr></thead><tbody id="leaderboard-body"></tbody></table>
+          </section>
+          <button id="play-again-button" class="secondary-button" type="button">PLAY AGAIN <span>↻</span></button>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/sonny.js"></script>
+    <script src="js/leaderboard.js"></script>
+    <script src="js/game.js"></script>
+  </body>
+</html>
