@@ -127,7 +127,7 @@ h1 em, h2 em { color: var(--accent); font-style: normal; }
     radial-gradient(circle at 80% 75%, #a8d8a8 0%, #a8d8a8 25%, transparent 26%),
     linear-gradient(#bde0fe 0%, #bde0fe 55%, #cdeac0 55%, #cdeac0 100%);
 }
-.scene-stage > img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.scene-stage > img { display: block; width: 100%; height: 100%; object-fit: fill; }
 .sonny-layer, .effect-layer { position: absolute; pointer-events: none; }
 .sonny { position: absolute; padding: 0; border: 0; background: none; cursor: pointer; pointer-events: auto; opacity: var(--sonny-opacity); filter: saturate(0.78) contrast(0.86); transition: transform 0.15s ease, opacity 0.25s ease; -webkit-tap-highlight-color: transparent; }
 .sonny svg { display: block; width: 100%; height: 100%; }
