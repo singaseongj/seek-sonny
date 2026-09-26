@@ -20,13 +20,11 @@ h1 em, h2 em { color:var(--orange); font-family:Georgia,serif; font-weight:400; 
 .primary-button:active { transform:translateY(1px); }
 .primary-button:disabled { opacity:.55; cursor:wait; }
 .start-hint { font:400 10px "DM Mono",monospace; opacity:.58; margin-top:22px; }
-.character-card { position:relative; width:min(100%,430px); justify-self:center; aspect-ratio:4/5; border:1px solid var(--ink); background:var(--yellow); box-shadow:18px 18px 0 var(--ink); display:flex; align-items:center; justify-content:center; transform:rotate(2deg); }
-.character-card::before { content:""; position:absolute; inset:18px; border:1px dashed rgba(24,35,29,.32); }
-.card-label { position:absolute; top:29px; left:30px; font:500 10px "DM Mono",monospace; letter-spacing:.17em; }
-.sonny-preview { width:55%; filter:drop-shadow(8px 10px 0 rgba(24,35,29,.13)); }
-.sonny-preview svg { display:block; width:100%; height:auto; }
-.card-caption { position:absolute; inset:auto 30px 28px; display:flex; justify-content:space-between; align-items:end; border-top:1px solid var(--ink); padding-top:13px; font:500 10px "DM Mono",monospace; }
-.card-caption span { opacity:.65; }
+.start-leaderboard { width:min(100%,500px); justify-self:center; margin:0; padding:30px 32px 34px; border:1px solid var(--ink); background:var(--paper); box-shadow:14px 14px 0 var(--yellow); }
+.start-leaderboard .board-heading { padding-bottom:14px; border-bottom:2px solid var(--ink); }
+.start-leaderboard .board-heading h2 { margin:0; font-size:18px; line-height:1; letter-spacing:.12em; }
+.start-leaderboard th, .start-leaderboard td { padding-block:11px; }
+.loading-row td { height:64px; text-align:center !important; color:rgba(24,35,29,.55); letter-spacing:.1em; }
 .instructions { border-top:1px solid var(--line); display:grid; grid-template-columns:repeat(3,1fr); }
 .instructions div { padding:20px 4px 0; display:flex; gap:15px; font:600 10px "DM Mono",monospace; letter-spacing:.12em; }
 .instructions b { color:var(--orange); }
@@ -64,11 +62,6 @@ h1 em, h2 em { color:var(--orange); font-family:Georgia,serif; font-weight:400; 
 .input-row input:focus { box-shadow:inset 0 0 0 2px var(--orange); }
 .submit-status { min-height:20px; font:400 10px "DM Mono",monospace; }
 .leaderboard { margin:26px 0; }
-.leaderboard-only .result-panel > .eyebrow,
-.leaderboard-only .result-panel > h2,
-.leaderboard-only .final-time,
-.leaderboard-only .score-form { display:none; }
-.leaderboard-only .leaderboard { margin-top:0; }
 .board-heading { display:flex; justify-content:space-between; align-items:center; }
 .board-heading h3 { font-size:18px; letter-spacing:.12em; }
 .board-heading span { font:500 9px "DM Mono",monospace; }
@@ -85,15 +78,15 @@ tr.is-player { color:var(--orange); font-weight:700; background:rgba(239,91,42,.
   .topbar { height:58px; }.edition { display:none; }
   .start-grid { grid-template-columns:1fr; gap:34px; padding:34px 4px; }
   h1 { font-size:clamp(68px,24vw,110px); }.dek { margin:25px 0 24px; }
-  .character-card { width:min(62vw,260px); order:-1; aspect-ratio:1; box-shadow:10px 10px 0 var(--ink); }
-  .card-caption { inset:auto 18px 17px; }.card-label { top:18px; left:18px; }
+  .start-leaderboard { width:calc(100% - 10px); padding:22px 18px 24px; box-shadow:8px 8px 0 var(--yellow); }
+  .start-leaderboard th, .start-leaderboard td { padding-block:7px; }
   .instructions { display:none; }
   .game-hud { height:58px; grid-template-columns:1fr auto auto; gap:12px; padding:0 12px; }
   .hud-brand { font-size:0; }.hud-stat { padding-left:10px; display:block; }.hud-stat > span { display:block; margin-bottom:2px; }.hud-stat strong { font-size:14px; }
   .game-footer { height:36px; }
   .result-screen { align-items:start; padding-top:35px; overflow:auto; }
-  .start-actions { display:grid; grid-template-columns:1fr 1fr; }
-  .start-actions .primary-button { min-width:0; padding-inline:14px; }
+  .start-actions { display:block; }
+  .start-actions .primary-button { min-width:150px; padding-inline:14px; }
   .input-row { grid-template-columns:1fr; }.input-row input { height:52px; }.input-row .primary-button { width:100%; }
 }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; transition:none !important; } }

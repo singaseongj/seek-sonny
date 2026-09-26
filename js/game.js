@@ -12,11 +12,8 @@
   const loadingScene = document.querySelector("#loading-scene");
   const resultScreen = screens.result;
   const returnButton = document.querySelector("#play-again-button");
-  const returnButtonLabel = returnButton.querySelector(".button-label");
-  const returnButtonIcon = returnButton.querySelector("[aria-hidden]");
+  const startLeaderboardBody = document.querySelector("#start-leaderboard-body");
   let startTime = 0, elapsedTime = 0, animationFrame = null, remaining = config.sonnyCount, placements = [];
-
-  document.querySelector("#sonny-preview").innerHTML = window.Sonny.createSVG({ id: "preview-sonny" });
 
   function showScreen(name) {
     Object.entries(screens).forEach(([key, screen]) => screen.classList.toggle("is-hidden", key !== name));
@@ -120,15 +117,11 @@
     document.querySelector("#score-form").reset();
     document.querySelector("#submit-status").textContent = "";
     document.querySelector("#submit-score").disabled = false;
-    resultScreen.classList.remove("leaderboard-only");
     resultScreen.setAttribute("aria-labelledby", "result-title");
-    returnButtonLabel.textContent = "PLAY AGAIN";
-    returnButtonIcon.textContent = "↻";
     showScreen("result");
   }
 
-  function renderLeaderboard(entries, player) {
-    const body = document.querySelector("#leaderboard-body");
+  function renderLeaderboard(entries, player, body = document.querySelector("#leaderboard-body")) {
     const combined = [...entries];
     if (player && !combined.some((entry) => entry.nickname === player.nickname && Math.abs(Number(entry.time) - player.time) < .001)) combined.push(player);
     combined.sort((a, b) => Number(a.time) - Number(b.time));
@@ -138,7 +131,13 @@
       [String(index + 1).padStart(2, "0"), entry.nickname, `${Number(entry.time).toFixed(2)}s`].forEach((value) => { const cell = document.createElement("td"); cell.textContent = value; row.append(cell); });
       return row;
     }));
-    document.querySelector("#leaderboard-section").classList.remove("is-hidden");
+    if (body.id === "leaderboard-body") document.querySelector("#leaderboard-section").classList.remove("is-hidden");
+  }
+
+  async function refreshStartLeaderboard() {
+    startLeaderboardBody.innerHTML = '<tr class="loading-row"><td colspan="3">LOADING SCORES…</td></tr>';
+    const entries = await window.Leaderboard.fetchLeaderboard();
+    renderLeaderboard(entries, null, startLeaderboardBody);
   }
 
   document.querySelector("#score-form").addEventListener("submit", async (event) => {
@@ -156,16 +155,8 @@
   });
 
   document.querySelector("#start-button").addEventListener("click", startGame);
-  document.querySelector("#highscore-button").addEventListener("click", async () => {
-    resultScreen.classList.add("leaderboard-only");
-    resultScreen.setAttribute("aria-labelledby", "leaderboard-title");
-    returnButtonLabel.textContent = "BACK";
-    returnButtonIcon.textContent = "←";
-    showScreen("result");
-    const entries = await window.Leaderboard.fetchLeaderboard();
-    renderLeaderboard(entries);
-  });
-  returnButton.addEventListener("click", () => showScreen("start"));
-  document.querySelector("#quit-button").addEventListener("click", () => { cancelAnimationFrame(animationFrame); showScreen("start"); });
+  returnButton.addEventListener("click", () => { showScreen("start"); refreshStartLeaderboard(); });
+  document.querySelector("#quit-button").addEventListener("click", () => { cancelAnimationFrame(animationFrame); showScreen("start"); refreshStartLeaderboard(); });
   window.addEventListener("resize", () => { if (!screens.game.classList.contains("is-hidden")) syncLayerToImage(); });
+  refreshStartLeaderboard();
 })();
